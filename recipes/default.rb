@@ -11,7 +11,6 @@ end
 ruby_block "dump_ec2_metadata_before hack" do
   only_if node[:ohai_ec2_hack][:debug]
   block do
-    #print node[:ec2]
     Chef::Log.info("node[:ec2] = '#{node[:ec2]}'")
   end
 end
