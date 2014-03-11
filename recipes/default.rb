@@ -9,9 +9,8 @@ ohai "reload_ec2" do
 end
 
 ruby_block "dump_ec2_metadata_before hack" do
-  only_if node[:ohai_ec2_hack][:debug]
   block do
-    Chef::Log.info("node[:ec2] = '#{node[:ec2]}'")
+    Chef::Log.debug("node[:ec2] = '#{node[:ec2]}'")
   end
 end
 
@@ -35,8 +34,7 @@ file node[:ohai_ec2_hack][:hint_file] do
 end
 
 ruby_block "dump_ec2_metadata_after_hack" do
-  only_if node[:ohai_ec2_hack][:debug]
   block do
-    Chef::Log.info("node[:ec2] = '#{node[:ec2]}'")
+    Chef::Log.debug("node[:ec2] = '#{node[:ec2]}'")
   end
 end
